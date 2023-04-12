@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QFileDialog>
+
 #include "configfilemanager.h"
 
 QT_BEGIN_NAMESPACE
@@ -21,10 +23,20 @@ public:
 private slots:
     void on_buttonOpenPath_1_clicked();
 
+    void on_buttonFlash_1_clicked();
+
 private:
     Ui::MainWindow *ui;
     ConfigFileManager configFileManager;
+    QFileDialog *openFileDialog;
 
+
+private:
     bool bInitFailure = false;
+
+    QString OpenFileInitPath;
+
+
+
 };
 #endif // MAINWINDOW_H

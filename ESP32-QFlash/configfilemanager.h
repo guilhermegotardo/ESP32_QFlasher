@@ -6,7 +6,6 @@
 class ConfigFileManager : public FileManager
 {
 
-
 public:
     ConfigFileManager();
     ~ConfigFileManager();
