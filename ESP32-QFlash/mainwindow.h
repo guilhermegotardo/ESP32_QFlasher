@@ -5,6 +5,7 @@
 #include <QFileDialog>
 
 #include "configfilemanager.h"
+#include "devicefilemanager.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -18,7 +19,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     bool initConfigFile( void );
-    bool initFailure( void );
+    bool getInitFailure( void );
+
+    bool initDeviceFile( void );
+    bool getDeviceFileFailure( void );
 
 private slots:
     void on_buttonOpenPath_1_clicked();
@@ -28,11 +32,13 @@ private slots:
 private:
     Ui::MainWindow *ui;
     ConfigFileManager configFileManager;
+    DeviceFileManager deviceFileManager;
     QFileDialog *openFileDialog;
 
 
 private:
-    bool bInitFailure = false;
+    bool bInitFailure;
+    bool bDeviceFileFailure;
 
     QString OpenFileInitPath;
 

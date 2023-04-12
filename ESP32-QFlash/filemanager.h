@@ -16,8 +16,8 @@ public:
     file_result_t ReadXmlFile( QString PathToFile );
 
 protected:
-    QFile *rawFile = NULL;
-    QDomDocument *xmlDomFile = NULL;
+    QFile *rawFile;
+    QDomDocument *xmlDomFile;
 
 private:
 

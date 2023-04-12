@@ -10,6 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+    bInitFailure = false;
 
     if ( initConfigFile() )
     {
@@ -44,9 +45,40 @@ bool MainWindow::initConfigFile( void )
     return bRetVal;
 }
 
-bool MainWindow::initFailure( void )
+bool MainWindow::getInitFailure( void )
 {
     return bInitFailure;
+}
+
+bool MainWindow::initDeviceFile( void )
+{
+    bool bRetVal = false;
+    QString PathToDeviceFile;
+
+    do
+    {
+        PathToDeviceFile = ui->linePathForFile_1->text();
+
+        if( PathToDeviceFile.isEmpty() )
+        {
+            bRetVal = true;
+            break;
+        }
+
+        bRetVal = (bool)deviceFileManager.ReadXmlFile( PathToDeviceFile );
+        if( bRetVal )
+            break;
+
+        bRetVal = deviceFileManager.ProcessDeviceFile();
+
+    }while( 0 );
+
+    return bRetVal;
+}
+
+bool MainWindow::getDeviceFileFailure( void )
+{
+    return bDeviceFileFailure;
 }
 
 
@@ -69,6 +101,6 @@ void MainWindow::on_buttonOpenPath_1_clicked()
 
 void MainWindow::on_buttonFlash_1_clicked()
 {
-
+    initDeviceFile();
 }
 

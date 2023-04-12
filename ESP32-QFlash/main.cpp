@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
     }
     MainWindow w;
 
-    if( w.initFailure() )
+    if( w.getInitFailure() )
     {
         showFailureMessage();
         return 0;

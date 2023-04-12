@@ -10,12 +10,14 @@ CONFIG += c++11
 
 SOURCES += \
     configfilemanager.cpp \
+    devicefilemanager.cpp \
     filemanager.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     configfilemanager.h \
+    devicefilemanager.h \
     filemanager.h \
     mainwindow.h \
     typedefs.h

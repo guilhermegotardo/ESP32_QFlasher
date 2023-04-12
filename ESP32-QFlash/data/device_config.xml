@@ -1,4 +1,46 @@
 <Device>
+	<Args>
+		<TargetChip>
+			<Type>static</Type>
+			<Command>chip</Command> 
+			<Value>esp32</Value>			<!-- VALUES:	esp8266, esp32, esp32s2, esp32s3beta2, esp32s3, esp32c3, esp32c6beta, esp32h2beta1, esp32h2beta2, esp32c2  -->
+		</TargetChip>
+		<SerialPort>
+			<Type>static</Type>
+			<Command>port</Command>
+			<Value>COM1</Value>
+		</SerialPort>
+		<SerialPortBaud>
+			<Type>static</Type>
+			<Command>baud</Command>
+			<Value>921600</Value>
+		</SerialPortBaud>
+		<BeforeConnecting>
+			<Type>static</Type>
+			<Command>before</Command>
+			<Value>default_reset</Value>	<!--VALUES:		default_reset, usb_reset, no_reset, no_reset_no_sync -->
+		</BeforeConnecting>
+		<AfterFinish>
+			<Type>static</Type>
+			<Command>before</Command>
+			<Value>hard_reset</Value>		<!--VALUES: 	hard_reset, soft_reset, no_reset, no_reset_stub	-->
+		</AfterFinish>
+		<FlashFrequency>
+			<Type>static</Type>
+			<Command>flash_freq</Command>
+			<Value>40m</Value>				<!--VALUES: 	80m 60m 48m 40m 30m 26m 24m 20m 16m 15m 12m	-->
+		</FlashFrequency>
+		<FlashMode>
+			<Type>static</Type>
+			<Command>flash_mode</Command>
+			<Value>dio</Value>				<!--VALUES: 	qio, qout, dio, dout -->
+		</FlashMode>
+		<FlashSize>
+			<Type>static</Type>
+			<Command>flash_size</Command>
+			<Value>detect</Value>			<!--VALUES: 	, detect, keep, -->
+		</FlashSize>
+	</Args>
 	<Files>
 		<BinaryFiles>
 			<File>
@@ -23,46 +65,4 @@
 			<KeyFile>key.bin</KeyFile>
 		</KeyFile>
 	</Files>
-	<Args>
-		<TargetChip>
-			<Type>static></Type>
-			<Command>chip</Command> 
-			<Value>esp32</Value>			<!-- VALUES:	esp8266, esp32, esp32s2, esp32s3beta2, esp32s3, esp32c3, esp32c6beta, esp32h2beta1, esp32h2beta2, esp32c2  -->
-		</TargetChip>
-		<SerialPort>
-			<Type>dynamic></Type>
-			<Command>port</Command>
-			<Value></Value>
-		</SerialPort>
-		<SerialPortBaud>
-			<Type>static></Type>
-			<Command>baud</Command>
-			<Value>921600</Value>
-		</SerialPortBaud>
-		<BeforeConnecting>
-			<Type>static></Type>
-			<Command>before</Command>
-			<Value>default_reset</Value>	<!--VALUES:		default_reset, usb_reset, no_reset, no_reset_no_sync -->
-		</BeforeConnecting>
-		<AfterFinish>
-			<Type>static></Type>
-			<Command>before</Command>
-			<Value>hard_reset</Value>		<!--VALUES: 	hard_reset, soft_reset, no_reset, no_reset_stub	-->
-		</AfterFinish>
-		<FlashFrequency>
-			<Type>static></Type>
-			<Command>flash_freq</Command>
-			<Value>40m</Value>				<!--VALUES: 	80m 60m 48m 40m 30m 26m 24m 20m 16m 15m 12m	-->
-		</FlashFrequency>
-		<FlashMode>
-			<Type>static></Type>
-			<Command>flash_mode</Command>
-			<Value>dio</Value>				<!--VALUES: 	qio, qout, dio, dout -->
-		</FlashMode>
-		<FlashSize>
-			<Type>static></Type>
-			<Command>flash_size</Command>
-			<Value>detect</Value>			<!--VALUES: 	, detect, keep, -->
-		</FlashSize>
-	</Args>
 </Device>
