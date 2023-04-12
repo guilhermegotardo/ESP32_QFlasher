@@ -3,6 +3,15 @@
 #include <QApplication>
 #include <QLocale>
 #include <QTranslator>
+#include <QMessageBox>
+#include <QCoreApplication>
+
+void showFailureMessage( void )
+{
+    QMessageBox failureMsgBox(QMessageBox::Critical,"Error","Error reading configuration file",
+                              QMessageBox::Ok,nullptr,Qt::Dialog);
+    failureMsgBox.exec();
+}
 
 int main(int argc, char *argv[])
 {
@@ -18,6 +27,12 @@ int main(int argc, char *argv[])
         }
     }
     MainWindow w;
+
+    if( w.initFailure() )
+    {
+        showFailureMessage();
+        return 0;
+    }
     w.show();
     return a.exec();
 }

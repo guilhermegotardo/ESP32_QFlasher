@@ -15,9 +15,16 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    bool initConfigFile( void );
+    bool initFailure( void );
+
+private slots:
+    void on_buttonOpenPath_1_clicked();
 
 private:
     Ui::MainWindow *ui;
     ConfigFileManager configFileManager;
+
+    bool bInitFailure = false;
 };
 #endif // MAINWINDOW_H
