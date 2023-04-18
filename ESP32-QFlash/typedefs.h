@@ -18,6 +18,7 @@ typedef enum
     FILE_OPEN_ERROR,
     FILE_NULL,
     XML_FILE_SET_ERROR,
+    XML_NODE_NOT_FOUND,
 
 }file_result_t;
 

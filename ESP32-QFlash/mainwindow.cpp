@@ -18,10 +18,12 @@ MainWindow::MainWindow(QWidget *parent)
         return;
     }
 
-#ifdef QT_DEBUG
-OpenFileInitPath = "C:/Users/Guilherme/D2/Dev/Projetos/023 - ESP QFlash/ESP32-QFlash/data";
-#endif
     ui->setupUi(this);
+
+#ifdef QT_DEBUG
+    OpenFileInitPath = "C:/Users/Guilherme/D2/Dev/Projetos/023 - ESP QFlash/ESP32-QFlash/data";
+    ui->linePathForFile_1->setText( "C:/Users/Guilherme/D2/Dev/Projetos/023 - ESP QFlash/ESP32-QFlash/data/device_config.xml" );
+#endif
 }
 
 MainWindow::~MainWindow()
